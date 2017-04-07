@@ -1,0 +1,14 @@
+<launch>
+    <!-- This node will convert fancy pointcloud2 data into the boring pointcloud data we get in Gazebo-->
+	<node pkg="point_cloud_converter" name="point_cloud_converter" type="point_cloud_converter_node" >
+		<remap from="/points2_in" to="/velodyne_points"/>
+		<remap from="/points_out" to="/catvehicle/lidar_points" />
+		<!--
+		<remap from="points2_in" to="velodyne_points"/>
+		<remap from="points_out" to="velodyne_points" />
+		-->
+	</node>
+
+    <!-- We must go ahead and broadcast static transforms for all our equipment -->
+    <include file="$(find catvehicle)/launch/catvehicle-tf.launch"/>
+</launch>
