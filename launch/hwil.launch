@@ -11,4 +11,6 @@
 
     <!-- We must go ahead and broadcast static transforms for all our equipment -->
     <include file="$(find catvehicle)/launch/catvehicle-tf.launch"/>
+    <!-- make sure odometry is reset and recast into our tf frame now too -->
+    <include file="$(find catvehiclehwil)/launch/odom.launch"/>
 </launch>

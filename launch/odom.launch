@@ -1,0 +1,9 @@
+<launch>
+	<!-- Tried this but it doesn't work well enough to use, use ./resetOdom.sh instead -->
+	<!--
+	<arg name="heading" default="180.0"/>
+    <node pkg="rostopic" type="rostopic" name="heading0publisher" args="pub -l -r 20 /catvehicle/odom_heading0 std_msgs/Float64 \-\- $(arg heading) "/>
+	-->
+    <node pkg="odometryadaptor" name="odometryadaptor" type="odometryadaptor_node" output="screen"/>
+
+</launch>
