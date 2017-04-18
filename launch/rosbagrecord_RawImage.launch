@@ -1,0 +1,20 @@
+<!-- This bag file captures necesssary topics plus Raw Image topics 
+    from left and right camera and prefixes 'info' argument to the name of the captured bag files
+
+    Author: Rahul Kumar Bhadani
+    
+-->
+
+<launch>
+    <arg name="info" default="cvchallenge"/>
+    <node name="recorder" pkg="rosbag" type="record" output="screen"
+        args="-o $(arg info) /catvehicle/cmd_vel_wrench
+                /catvehicle/vel
+                /catvehicle/brake
+                /catvehicle/accelerator
+                /catvehicle/front_laser_points
+                /catvehicle/odom
+                /catvehicle/camera_right/image_raw
+                /catvehicle/camera_left/image_raw"
+    />
+</launch>
