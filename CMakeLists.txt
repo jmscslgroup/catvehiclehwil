@@ -7,10 +7,12 @@ project(catvehiclehwil)
 find_package(catkin REQUIRED COMPONENTS
   point_cloud_converter
   sensor_msgs
+  nav_msgs
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS system)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -101,8 +103,8 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES catvehiclehwil
-#  CATKIN_DEPENDS point_cloud_converter sensor_msgs
-#  DEPENDS system_lib
+ CATKIN_DEPENDS point_cloud_converter sensor_msgs nav_msgs tf
+ DEPENDS system_lib
 )
 
 ###########
@@ -120,6 +122,14 @@ include_directories(
 # add_library(catvehiclehwil
 #   src/${PROJECT_NAME}/catvehiclehwil.cpp
 # )
+
+add_executable(odometrybroadcaster_node
+  src/odometry.cc
+)
+## Specify libraries to link a library or executable target against
+target_link_libraries(odometrybroadcaster_node
+  ${catkin_LIBRARIES}
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

@@ -1,0 +1,10 @@
+<launch>
+    <group ns="catvehicle">
+        <node pkg="catvehiclehwil" name="odometrybroadcaster_node" type="odometrybroadcaster_node" output="screen">
+            <param name="base_link" value="base_link"/>
+            <param name="odom_topic" value="/catvehicle/odom"/>
+            <param name="odom_frame" value="odom"/>
+            <param name="tf_scope" value="catvehicle"/>
+        </node>
+    </group>
+</launch>
