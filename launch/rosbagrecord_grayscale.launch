@@ -1,4 +1,4 @@
-<!-- This bag file captures necesssary topics plus Raw Image topics 
+<!-- This bag file captures necesssary topics plus grayscale topics 
     from left and right camera and prefixes 'info' argument to the name of the captured bag files
 
     Author: Rahul Kumar Bhadani
@@ -14,8 +14,8 @@
                 /catvehicle/accelerator
                 /catvehicle/front_laser_points
                 /catvehicle/odom
-                /catvehicle/camera_right/image_raw
-                /catvehicle/camera_left/image_raw
+                /catvehicle/camera_right/image_raw_right
+                /catvehicle/camera_left/image_raw_left
                 /tf
                 /clock
                 "

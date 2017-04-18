@@ -13,6 +13,9 @@
                 /catvehicle/accelerator
                 /catvehicle/front_laser_points
                 /catvehicle/odom
-                /catvehicle/lidar_points"
+                /catvehicle/lidar_points
+                /tf
+                /clock
+                "
     />
 </launch>

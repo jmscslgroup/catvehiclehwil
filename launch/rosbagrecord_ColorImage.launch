@@ -15,6 +15,9 @@
                 /catvehicle/front_laser_points
                 /catvehicle/odom
                 /catvehicle/camera_right/image_color
-                /catvehicle/camera_left/image_color"
+                /catvehicle/camera_left/image_color
+                /tf
+                /clock
+                "
     />
 </launch>
