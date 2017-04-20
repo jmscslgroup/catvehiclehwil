@@ -1,0 +1,12 @@
+<launch>
+    <group ns="catvehicle">
+        <node pkg="catvehiclehwil" name="odometrybroadcaster_node" type="odometrybroadcaster_node" output="screen">
+            <param name="base_link" value="base_link"/>
+            <param name="odom_topic" value="/catvehicle/odom_deadreckoning"/>
+            <param name="odom_frame" value="odom_deadreckoning"/>
+            <param name="tf_scope" value="catvehicle"/>
+        </node>
+    </group>
+    <include file="$(find catvehicle)/launch/catvehicle-tf.launch"/>
+    <node pkg="deadreckoning" name="deadreckoning_node" type="deadreckoning_node" output="screen"/>
+</launch>
