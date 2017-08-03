@@ -1,9 +1,14 @@
 <launch>
-	<!-- Tried this but it doesn't work well enough to use, use ./resetOdom.sh instead -->
-	<!--
-	<arg name="heading" default="180.0"/>
-    <node pkg="rostopic" type="rostopic" name="heading0publisher" args="pub -l -r 20 /catvehicle/odom_heading0 std_msgs/Float64 \-\- $(arg heading) "/>
-	-->
-    <node pkg="odometryadaptor" name="odometryadaptor" type="odometryadaptor_node" output="screen"/>
-
+    <group ns="catvehicle">
+        <node pkg="catvehiclehwil" name="odometrybroadcaster_node" type="odometrybroadcaster_node" output="screen">
+            <param name="base_link" value="base_link"/>
+            <param name="odom_topic" value="/catvehicle/odom"/>
+            <param name="odom_frame" value="odom"/>
+            <param name="tf_scope" value="catvehicle"/>
+        </node>
+    </group>
+    <include file="$(find catvehicle)/launch/catvehicle-tf.launch"/>
+    <node pkg="deadreckoning" name="deadreckoning_node" type="deadreckoning_node" output="screen">
+	<remap from="/catvehicle/odom_deadreckoning" to="/catvehicle/odom"/>
+    </node>
 </launch>
