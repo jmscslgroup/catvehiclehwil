@@ -10,7 +10,7 @@
 	</node>
 
     <!-- We must go ahead and broadcast static transforms for all our equipment -->
-    <include file="$(find catvehicle)/launch/catvehicle-tf.launch"/>
+    <!--include file="$(find catvehicle)/launch/catvehicle-tf.launch"/--> <!-- We won't need catvehicle-tf as it is included in odom.launch-->
     <!-- make sure odometry is reset and recast into our tf frame now too -->
     <include file="$(find catvehiclehwil)/launch/odom.launch"/>
 </launch>
